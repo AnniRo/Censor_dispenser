@@ -1,9 +1,10 @@
-# These are the emails to be censored
+# Read emails
 email_one = open("email_one.txt", "r").read()
 email_two = open("email_two.txt", "r").read()
 email_three = open("email_three.txt", "r").read()
 email_four = open("email_four.txt", "r").read()
 
+# Censor a word or phrase from the first email
 def censor_words(word, text):
     term = ""
     for w in word:
@@ -17,7 +18,7 @@ def censor_words(word, text):
 # print(censor_words('learning algorithms', email_one))
 
 proprietary_terms = ["she", "personality matrix", "sense of self", "self-preservation", "learning algorithm", "her", "herself"]
-
+# Censor the second email for a list of proprietary terms
 def censor_list(text, censored_terms):
   
   for term in censored_terms:
@@ -45,9 +46,9 @@ def censor_list(text, censored_terms):
   
 # print(censor_list(email_two, proprietary_terms))
 
-# Censor the occurance of negative words after any of them has occurred twice, plus the list of proprietary terms. 
-negative_words = ["concerned", "behind", "danger", "dangerous", "alarming", "alarmed", "out of control", "help", "unhappy", "bad", "upset", "awful", "broken", "damage", "damaging", "dismal", "distressed", "distressing", "concerning", "horrible", "horribly", "questionable"]
 
+negative_words = ["concerned", "behind", "danger", "dangerous", "alarming", "alarmed", "out of control", "help", "unhappy", "bad", "upset", "awful", "broken", "damage", "damaging", "dismal", "distressed", "distressing", "concerning", "horrible", "horribly", "questionable"]
+# Censor the occurance of negative words after any of them has occurred twice, plus the list of proprietary terms. 
 def censor_lists(neg_words, censored_terms, text):
     count = 0
     text_list = text.split()
@@ -197,4 +198,4 @@ def heavy_censoring(text):
       
     print(new_text)
   
-# heavy_censoring(email_four)
+heavy_censoring(email_four)
